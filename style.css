@@ -46,9 +46,9 @@ ul {
 }
 
 .kartu-proyek img {
-    width: 100%;
+    width: 45%;
     border-radius: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
 }
 
 .kartu-proyek h3 {
@@ -63,8 +63,181 @@ a {
     color: #2f6fed;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+    text-align: center;
+    padding: 14px 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #2f6fed;
+}
+
+section {
+    scroll-margin-top: 70px;
+}
+
+.tombol {
+    display: inline-block;
+    padding: 10px 22px;
+    background-color: white;
+    color: #2f6fed;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    margin: 5px;
+}
+
+.tombol-kosong {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.tombol-header {
+    margin-top: 20px;
+}
+
+.daftar-skill {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.daftar-skill li {
+    background-color: #e8f0fe;
+    color: #2f6fed;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.daftar-skill li:hover {
+    background-color: #2f6fed;
+    color: white;
+}
+
+.kartu-proyek {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.kartu-proyek:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.info-proyek {
+    flex: 1;
+}
+
+.teknologi {
+    color: #666;
+    font-size: 14px;
+}
+
+.tombol-proyek {
+    display: inline-block;
+    background-color: #2f6fed;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+}
+
+.tombol-proyek:hover {
+    background-color: #1f55c0;
+}
+
+.garis-waktu {
+    list-style: none;
+    padding-left: 20px;
+    border-left: 3px solid #2f6fed;
+}
+
+.garis-waktu li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.garis-waktu li::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: #2f6fed;
+    border-radius: 50%;
+    position: absolute;
+    left: -29px;
+    top: 6px;
+}
+
+.periode {
+    display: block;
+    color: #2f6fed;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+footer {
+    background-color: #2f6fed;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
 @media (max-width: 600px) {
     header h1 {
         font-size: 28px;
+    }
+
+    nav a {
+        font-size: 14px;
+        margin: 0 6px;
+    }
+
+    main {
+        padding: 20px 12px;
+    }
+
+    section {
+        padding: 18px;
+    }
+
+    header {
+        padding: 40px 16px;
+    }
+
+    .kartu-proyek {
+        flex-direction: column;
+    }
+
+    .kartu-proyek img {
+        width: 100%;
     }
 }

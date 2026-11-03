@@ -7,9 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav>
+        <a href="#tentang">Tentang</a>
+        <a href="#proyek">Proyek</a>
+        <a href="#skill">Skill</a>
+        <a href="#pengalaman">Pengalaman</a>
+        <a href="#sertifikat">Sertifikat</a>
+        <a href="#kontak">Kontak</a>
+    </nav>
     <header>
         <h1>Reyhan Setiawan Lie</h1>
         <p>Mahasiswa Teknik Informatika | Belajar Pengembangan Web</p>
+        <div class="tombol-header">
+            <a href="#proyek" class="tombol">Lihat Proyek</a>
+            <a href="#kontak" class="tombol tombol-kosong">Hubungi Saya</a>
+        </div>
     </header>
 
     <main>
@@ -22,16 +34,18 @@
             <h2>Proyek</h2>
             <div class="kartu-proyek">
                 <img src="images/02-dashboard-admin.png" alt="Dashboard Aplikasi Kasir Laundry">
-                <h3>Aplikasi Kasir Laundry</h3>
-                <p>Aplikasi web untuk mengelola transaksi laundry dengan dua level pengguna, admin dan petugas. Ada dashboard pendapatan, laporan keuangan, dan cetak invoice.</p>
-                <p>PHP, MySQL, Bootstrap, Chart.js</p>
-                <a href="https://github.com/ReyZ007/aplikasi-kasir-laundry">Lihat di GitHub</a>
+                <div class="info-proyek">
+                    <h3>Aplikasi Kasir Laundry</h3>
+                    <p>Aplikasi web untuk mengelola transaksi laundry dengan dua level pengguna, admin dan petugas. Ada dashboard pendapatan, laporan keuangan, dan cetak invoice.</p>
+                    <p class="teknologi">PHP, MySQL, Bootstrap, Chart.js</p>
+                    <a href="https://github.com/ReyZ007/aplikasi-kasir-laundry" class="tombol-proyek">Lihat di GitHub</a>
+                </div>
             </div>
         </section>
 
         <section id="skill">
             <h2>Skill</h2>
-            <ul>
+            <ul class="daftar-skill">
                 <li>PHP</li>
                 <li>MySQL</li>
                 <li>HTML dan CSS</li>
@@ -43,10 +57,10 @@
 
                 <section id="pengalaman">
             <h2>Pendidikan dan Pengalaman</h2>
-            <ul>
-                <li><strong>S1 Teknik Informatika</strong>, Universitas Pamulang (sekarang, semester 3)</li>
-                <li><strong>Praktik Kerja Industri</strong>, Incubesolutions, 1 Februari sampai 30 April 2024. Mempelajari pembuatan basis data dan SQL serta perancangan aplikasi berbasis web.</li>
-                <li><strong>SMK Al Amanah Tangerang Selatan</strong>, Rekayasa Perangkat Lunak (lulus 2025)</li>
+            <ul class="garis-waktu">
+                <li><span class="periode">Sekarang</span><strong>S1 Teknik Informatika</strong>, Universitas Pamulang (semester 3)</li>
+                <li><span class="periode">1 Februari - 30 April 2024</span><strong>Praktik Kerja Industri</strong>, Incubesolutions, Mempelajari pembuatan basis data dan SQL serta perancangan aplikasi berbasis web.</li>
+                <li><span class="periode">Lulus 2025</span><strong>SMK Al Amanah Tangerang Selatan</strong>, Rekayasa Perangkat Lunak</li>
             </ul>
         </section>
 
@@ -64,5 +78,8 @@
             <p>GitHub: <a href="https://github.com/ReyZ007">github.com/ReyZ007</a></p>
         </section>
     </main>
+    <footer>
+        <p>© 2026 Reyhan Setiawan Lie</p>
+    </footer>
 </body>
 </html>
