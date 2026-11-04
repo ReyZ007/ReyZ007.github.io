@@ -20,6 +20,12 @@ html {
     scroll-behavior: smooth;
 }
 
+html,
+body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
 body {
     font-family: 'VT323', monospace;
     background-color: #1a1a1f;
@@ -32,6 +38,13 @@ body {
     background-repeat: repeat;
     color: var(--teks);
     line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+img,
+svg {
+    max-width: 100%;
+    height: auto;
 }
 
 header {
@@ -156,10 +169,6 @@ ul {
     transition: transform 0.15s steps(2);
 }
 
-.kartu-proyek:hover {
-    transform: translate(-2px, -2px);
-}
-
 .kartu-proyek img {
     width: 45%;
     border: 3px solid var(--garis);
@@ -232,6 +241,9 @@ nav a {
     text-decoration: none;
     color: var(--teks);
     font-weight: bold;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
 }
 
 nav a:hover {
@@ -251,13 +263,12 @@ nav a:hover {
     border: 3px solid var(--garis);
     box-shadow: 4px 4px 0 var(--garis);
     transition: transform 0.1s, box-shadow 0.1s;
+    min-height: 44px;
 }
 
 .tombol:hover {
     background-color: var(--emas);
     color: var(--garis);
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 var(--garis);
 }
 
 .tombol-kosong {
@@ -267,6 +278,10 @@ nav a:hover {
 }
 
 .tombol-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
     margin-top: 20px;
 }
 
@@ -339,6 +354,7 @@ nav a:hover {
     text-decoration: none;
     padding: 8px 18px;
     border: 3px solid var(--garis);
+    min-height: 44px;
 }
 
 .tombol-proyek:hover {
@@ -386,7 +402,7 @@ nav a:hover {
 
 .daftar-badge {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
     gap: 16px;
 }
 
@@ -397,10 +413,6 @@ nav a:hover {
     padding: 14px;
     text-align: center;
     transition: transform 0.15s steps(2);
-}
-
-.badge:hover {
-    transform: translateY(-3px);
 }
 
 .ikon-badge {
@@ -447,6 +459,7 @@ nav a:hover {
     border: 3px solid #0d0d10;
     border-radius: 0;
     box-shadow: 4px 4px 0 #0d0d10;
+    min-height: 44px;
     text-decoration: none;
     transition: transform 0.1s steps(2), background-color 0.1s steps(2);
     overflow-wrap: anywhere;
@@ -456,7 +469,6 @@ nav a:hover {
 
 .tombol-save:hover {
     background-color: #ffd166;
-    transform: translate(-2px, -2px);
 }
 
 .tombol-save:active {
@@ -511,7 +523,7 @@ footer {
 
 .lembar-karakter dl {
     display: grid;
-    grid-template-columns: 160px 1fr;
+    grid-template-columns: minmax(0, 160px) minmax(0, 1fr);
     gap: 8px 16px;
 }
 
@@ -785,11 +797,6 @@ section h2::after {
     transition: transform 0.1s steps(2);
 }
 
-.tombol-proyek:hover,
-.tombol-header .tombol:hover {
-    transform: translate(-2px, -2px);
-}
-
 .tombol-header .tombol {
     transition: transform 0.1s steps(2), box-shadow 0.1s steps(2);
 }
@@ -936,6 +943,61 @@ footer {
     .loading {
         display: none;
     }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+.daftar-badge > *,
+.daftar-guild > *,
+.inventaris > *,
+.lembar-karakter dl > * {
+    min-width: 0;
+}
+
+@media (hover: hover) {
+    .kartu-proyek:hover,
+    .badge:hover,
+    .lembar-karakter:hover {
+        transform: translateY(-3px);
+    }
+
+    .tombol:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 var(--garis);
+    }
+
+    .tombol-save:hover {
+        transform: translate(-2px, -2px);
+    }
+
+    .slot:hover img {
+        transform: translateY(-2px);
+    }
+
+    .anggota:hover {
+        transform: translateY(-4px);
+    }
+
+    .anggota:hover .sprite-guild {
+        animation: lompat 0.4s steps(4);
+    }
+
+    .ke-atas:hover {
+        transform: translateY(-2px);
+    }
+
+    .tombol-proyek:hover,
+    .tombol-header .tombol:hover {
+        transform: translate(-2px, -2px);
+    }
+
+    .tombol-header .tombol:hover::after,
+    .tombol-proyek:hover::after,
+    .tombol-save:hover::after {
+        animation: kilau 0.4s steps(6);
+    }
 }
 
 body {
@@ -957,7 +1019,7 @@ button,
 
 .inventaris {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 84px), 1fr));
     gap: 10px;
 }
 
@@ -971,6 +1033,7 @@ button,
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 44px;
 }
 
 .slot img {
@@ -982,10 +1045,6 @@ button,
 
 .slot:hover {
     border-color: #ffd166;
-}
-
-.slot:hover img {
-    transform: translateY(-2px);
 }
 
 .slot:hover::after {
@@ -1035,7 +1094,6 @@ button,
 
 .ke-atas:hover {
     background: #ffd166;
-    transform: translateY(-2px);
 }
 
 @media (max-width: 600px) {
@@ -1060,7 +1118,7 @@ button,
 
 .daftar-guild {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
     gap: 16px;
 }
 
@@ -1140,11 +1198,6 @@ button,
 
 .anggota:hover {
     border-color: #ff8c1a;
-    transform: translateY(-4px);
-}
-
-.anggota:hover .sprite-guild {
-    animation: lompat 0.4s steps(4);
 }
 
 @keyframes lompat {
@@ -1183,15 +1236,6 @@ button,
     .obor {
         display: none;
     }
-}
-
-html,
-body {
-    overflow-x: hidden;
-}
-
-img {
-    max-width: 100%;
 }
 
 header h1,
@@ -1331,12 +1375,6 @@ section:hover {
     transition: transform 0.15s steps(2);
 }
 
-.kartu-proyek:hover,
-.badge:hover,
-.lembar-karakter:hover {
-    transform: translateY(-3px);
-}
-
 .tombol-header .tombol,
 .tombol-proyek,
 .tombol-save {
@@ -1356,12 +1394,6 @@ section:hover {
     background: rgba(255, 255, 255, 0.45);
     transform: skewX(-25deg);
     pointer-events: none;
-}
-
-.tombol-header .tombol:hover::after,
-.tombol-proyek:hover::after,
-.tombol-save:hover::after {
-    animation: kilau 0.4s steps(6);
 }
 
 @keyframes kilau {
@@ -1389,8 +1421,110 @@ section:hover {
 }
 
 @media (max-width: 600px) {
+    p,
+    li,
+    .dialog,
+    .dialog-npc,
+    .teks-save {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    h2 {
+        font-size: clamp(14px, 4.5vw, 20px);
+    }
+
+    main {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    section {
+        width: 94%;
+        padding: 14px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     header {
         min-height: 50vh;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .sprite,
+    .sprite-guild {
+        max-width: 96px;
+    }
+
+    .kartu-proyek {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .daftar-badge {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lembar-karakter dl {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .garis-waktu {
+        padding-left: 28px;
+    }
+
+    .garis-waktu li::before {
+        left: -18px;
+    }
+
+    .inventaris {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .slot {
+        min-height: 44px;
+        padding: 4px;
+    }
+
+    nav a,
+    button,
+    .tombol,
+    .tombol-save,
+    .tombol-proyek {
+        min-height: 44px;
+    }
+
+    nav a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 4px;
+    }
+
+    .tombol-header,
+    .daftar-save {
+        gap: 8px;
+    }
+
+    .tombol-save {
+        max-width: 100%;
+        padding: 10px 12px;
+        font-size: 10px;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        white-space: normal;
+    }
+
+    .daftar-save {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .slot:hover::after {
+        display: none;
     }
 
     .bintang:nth-child(2n) {
