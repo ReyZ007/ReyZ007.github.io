@@ -946,3 +946,181 @@ footer {
         display: none;
     }
 }
+
+header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    background-color: #1a1a1f;
+    background-image: url("images/latar-hero.svg");
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+
+header > :not(.bintang) {
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 0 #0d0d10;
+}
+
+header .tombol-header a {
+    text-shadow: none;
+}
+
+.bintang {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #e8e0d0;
+    animation: kelip 1.6s steps(2) infinite;
+}
+
+.bintang:nth-child(1) { left: 8%; top: 16%; animation-delay: -0.2s; }
+.bintang:nth-child(2) { left: 19%; top: 31%; animation-delay: -1s; }
+.bintang:nth-child(3) { left: 29%; top: 12%; animation-delay: -0.6s; }
+.bintang:nth-child(4) { left: 41%; top: 25%; animation-delay: -1.3s; }
+.bintang:nth-child(5) { left: 53%; top: 10%; animation-delay: -0.8s; }
+.bintang:nth-child(6) { left: 64%; top: 29%; animation-delay: -0.4s; }
+.bintang:nth-child(7) { left: 73%; top: 14%; animation-delay: -1.1s; }
+.bintang:nth-child(8) { left: 82%; top: 34%; animation-delay: -0.7s; }
+.bintang:nth-child(9) { left: 91%; top: 18%; animation-delay: -1.5s; }
+.bintang:nth-child(10) { left: 97%; top: 30%; animation-delay: -0.9s; }
+
+@keyframes kelip {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background:
+        radial-gradient(ellipse at 0 0, rgba(255, 140, 26, 0.12), transparent 35%),
+        radial-gradient(ellipse at 100% 0, rgba(255, 140, 26, 0.12), transparent 35%);
+    animation: cahaya-obor 2s steps(3) infinite;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+@keyframes cahaya-obor {
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+section {
+    transition: border-color 0.15s steps(2), box-shadow 0.15s steps(2);
+}
+
+section:hover {
+    border-color: #ff8c1a;
+    box-shadow: 0 0 0 2px #ff8c1a;
+}
+
+.kartu-proyek,
+.badge,
+.lembar-karakter {
+    transition: transform 0.15s steps(2);
+}
+
+.kartu-proyek:hover,
+.badge:hover,
+.lembar-karakter:hover {
+    transform: translateY(-3px);
+}
+
+.tombol-header .tombol,
+.tombol-proyek,
+.tombol-save {
+    position: relative;
+    overflow: hidden;
+}
+
+.tombol-header .tombol::after,
+.tombol-proyek::after,
+.tombol-save::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 30%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.45);
+    transform: skewX(-25deg);
+    pointer-events: none;
+}
+
+.tombol-header .tombol:hover::after,
+.tombol-proyek:hover::after,
+.tombol-save:hover::after {
+    animation: kilau 0.4s steps(6);
+}
+
+@keyframes kilau {
+    to {
+        left: 130%;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d0d10;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff8c1a;
+    border: 2px solid #0d0d10;
+    border-radius: 0;
+}
+
+* {
+    scrollbar-color: #ff8c1a #0d0d10;
+}
+
+@media (max-width: 600px) {
+    header {
+        min-height: 50vh;
+    }
+
+    .bintang:nth-child(2n) {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
