@@ -20,7 +20,14 @@ html {
 
 body {
     font-family: 'VT323', monospace;
-    background-color: var(--latar);
+    background-color: #1a1a1f;
+    background-image:
+        linear-gradient(to bottom, #0d0d10 1px, transparent 1px 32px, #0d0d10 32px 33px, transparent 33px),
+        linear-gradient(90deg, #0d0d10 1px, transparent 1px),
+        linear-gradient(90deg, #0d0d10 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: 0 0, 0 0, 32px 32px;
+    background-repeat: repeat;
     color: var(--teks);
     line-height: 1.6;
 }
@@ -66,7 +73,7 @@ main {
 }
 
 section {
-    background-color: var(--panel);
+    background-color: #2b2b33;
     padding: 24px;
     margin-bottom: 20px;
     border: 4px solid var(--garis);
@@ -77,6 +84,59 @@ section {
 section h2 {
     color: var(--aksen);
     margin-bottom: 12px;
+}
+
+.sprite {
+    display: block;
+    image-rendering: pixelated;
+    width: 96px;
+    height: auto;
+    animation: melayang 1.2s steps(2) infinite;
+}
+
+.sprite-besar {
+    width: 160px;
+}
+
+.sprite-kecil {
+    width: 64px;
+}
+
+.baris-karakter {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.baris-karakter .lembar-karakter {
+    margin-top: 0;
+}
+
+.judul-dengan-sprite {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.judul-dengan-sprite h2 {
+    margin-bottom: 0;
+}
+
+@keyframes melayang {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 ul {
@@ -129,6 +189,46 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+}
+
+.obor {
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 28px;
+    background-color: #5b3a1e;
+    transform: translateY(-50%);
+}
+
+.obor:first-child {
+    left: 24px;
+}
+
+.obor:last-child {
+    right: 24px;
+}
+
+.obor::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #ff8c1a;
+    animation: kedip 0.6s steps(2) infinite;
+}
+
+@keyframes kedip {
+    0% {
+        background-color: #ff8c1a;
+        transform: translateY(0);
+    }
+
+    100% {
+        background-color: #ffd166;
+        transform: translateY(-2px);
+    }
 }
 
 nav a {
@@ -447,6 +547,10 @@ footer {
         margin: 0 4px;
     }
 
+    .obor {
+        display: none;
+    }
+
     main {
         padding: 20px 12px;
     }
@@ -467,7 +571,70 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .sprite {
+        width: 72px;
+    }
+
+    .sprite-besar {
+        width: 120px;
+    }
+
     .daftar-badge {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sprite,
+    .obor::before {
+        animation: none;
+    }
+}
+
+body {
+    background-color: #1a1a1f;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M0 1h64M0 33h64M1 0v32M33 32v32' stroke='%23131317' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+}
+
+section {
+    background-color: #2b2b33;
+}
+
+nav {
+    align-items: flex-start;
+}
+
+.obor {
+    position: relative;
+    width: 12px;
+    height: 28px;
+    background: #5b3a1e;
+    margin-top: 14px;
+    left: auto;
+    right: auto;
+    transform: none;
+}
+
+.obor::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -12px;
+    width: 12px;
+    height: 12px;
+    background: #ff8c1a;
+    border-radius: 0;
+    animation: kedip 0.6s steps(2) infinite;
+}
+
+@keyframes kedip {
+    from {
+        background: #ff8c1a;
+        transform: translateY(0);
+    }
+
+    to {
+        background: #ffd166;
+        transform: translateY(-2px);
     }
 }
