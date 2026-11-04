@@ -926,6 +926,116 @@ footer {
     }
 }
 
+.teks-guild {
+    margin-bottom: 16px;
+}
+
+.daftar-guild {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.anggota {
+    position: relative;
+    background: #1a1a1f;
+    border: 3px solid #0d0d10;
+    box-shadow: 4px 4px 0 #0d0d10;
+    padding: 14px;
+    text-align: center;
+    border-radius: 0;
+    transition: transform 0.15s steps(2), border-color 0.15s steps(2);
+}
+
+.anggota::after {
+    content: "";
+    position: absolute;
+    top: 112px;
+    left: 50%;
+    width: 60px;
+    height: 8px;
+    background: #0d0d10;
+    opacity: 0.5;
+    transform: translateX(-50%);
+}
+
+.sprite-guild {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    margin: 0 auto;
+    animation: guild-melayang 1.4s steps(2) infinite;
+}
+
+.anggota:nth-child(2) .sprite-guild { animation-delay: -0.2s; }
+.anggota:nth-child(3) .sprite-guild { animation-delay: -0.4s; }
+.anggota:nth-child(4) .sprite-guild { animation-delay: -0.6s; }
+.anggota:nth-child(5) .sprite-guild { animation-delay: -0.8s; }
+.anggota:nth-child(6) .sprite-guild { animation-delay: -1s; }
+.anggota:nth-child(7) .sprite-guild { animation-delay: -1.2s; }
+.anggota:nth-child(8) .sprite-guild { animation-delay: -0.3s; }
+.anggota:nth-child(9) .sprite-guild { animation-delay: -0.5s; }
+.anggota:nth-child(10) .sprite-guild { animation-delay: -0.7s; }
+.anggota:nth-child(11) .sprite-guild { animation-delay: -0.9s; }
+
+@keyframes guild-melayang {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.nama-anggota {
+    position: relative;
+    z-index: 1;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+    color: #ffd166;
+    margin-top: 8px;
+}
+
+.peran-anggota {
+    position: relative;
+    z-index: 1;
+    color: #e8e0d0;
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+.anggota:hover {
+    border-color: #ff8c1a;
+    transform: translateY(-4px);
+}
+
+.anggota:hover .sprite-guild {
+    animation: lompat 0.4s steps(4);
+}
+
+@keyframes lompat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@media (max-width: 600px) {
+    .daftar-guild {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 .obor-kiri {
     left: 24px;
 }
