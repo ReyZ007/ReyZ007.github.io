@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="atas">
     <div class="loading">
         <p>Summoning hero...</p>
         <div class="loading-bar"><div class="loading-isi"></div></div>
@@ -77,6 +77,8 @@
             </div>
         </section>
 
+        <div class="pembatas"></div>
+
         <section id="proyek">
             <div class="judul-dengan-sprite">
                 <h2>Proyek</h2>
@@ -93,6 +95,8 @@
                 </div>
             </div>
         </section>
+
+        <div class="pembatas"></div>
 
         <section id="skill">
             <div class="judul-dengan-sprite">
@@ -125,7 +129,36 @@
                     <span class="bar"><span class="isi" style="width: 60%"></span></span>
                 </li>
             </ul>
+            <h3 class="judul-inventaris">Inventory</h3>
+            <div class="inventaris">
+                <div class="slot" data-nama="PHP: main weapon">
+                    <img src="images/pedang.svg" alt="Sword icon">
+                </div>
+                <div class="slot" data-nama="MySQL: health potion">
+                    <img src="images/ramuan-merah.svg" alt="Red potion icon">
+                </div>
+                <div class="slot" data-nama="HTML and CSS: spellbook">
+                    <img src="images/buku.svg" alt="Spellbook icon">
+                </div>
+                <div class="slot" data-nama="Bootstrap: shield">
+                    <img src="images/perisai.svg" alt="Shield icon">
+                </div>
+                <div class="slot" data-nama="Git: quest scroll">
+                    <img src="images/gulungan.svg" alt="Quest scroll icon">
+                </div>
+                <div class="slot" data-nama="GitHub: master key">
+                    <img src="images/kunci.svg" alt="Master key icon">
+                </div>
+                <div class="slot" data-nama="Chart.js: gold coin">
+                    <img src="images/koin.svg" alt="Gold coin icon">
+                </div>
+                <div class="slot" data-nama="phpMyAdmin: mana potion">
+                    <img src="images/ramuan-biru.svg" alt="Mana potion icon">
+                </div>
+            </div>
         </section>
+
+        <div class="pembatas"></div>
 
                 <section id="pengalaman">
             <div class="judul-dengan-sprite">
@@ -138,6 +171,8 @@
                 <li><p class="level">Level 1</p><span class="periode">Lulus 2025</span><strong>SMK Al Amanah Tangerang Selatan</strong>, Rekayasa Perangkat Lunak</li>
             </ul>
         </section>
+
+        <div class="pembatas"></div>
 
         <section id="sertifikat">
             <div class="judul-dengan-sprite">
@@ -157,6 +192,8 @@
                 </div>
             </div>
         </section>
+
+        <div class="pembatas"></div>
 
         <section id="guild">
             <h2>Guild</h2>
@@ -260,6 +297,8 @@
             </div>
         </section>
 
+        <div class="pembatas"></div>
+
         <section id="kontak">
             <h2>Kontak</h2>
             <img src="images/naga.svg" class="sprite sprite-besar" alt="Naga pixel art">
@@ -286,5 +325,6 @@
         window.addEventListener("scroll", perbaruiXP);
         perbaruiXP();
     </script>
+    <a href="#atas" class="ke-atas" aria-label="Back to top">▲</a>
 </body>
 </html>

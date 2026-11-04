@@ -926,6 +926,122 @@ footer {
     }
 }
 
+body {
+    cursor: url("images/kursor.svg") 0 0, auto;
+}
+
+a,
+button,
+.tombol,
+.tombol-save,
+.anggota {
+    cursor: url("images/kursor.svg") 0 0, pointer;
+}
+
+.judul-inventaris {
+    color: #ffd166;
+    margin: 20px 0 12px;
+}
+
+.inventaris {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+    gap: 10px;
+}
+
+.slot {
+    position: relative;
+    background: #0d0d10;
+    border: 3px solid #4a4a55;
+    padding: 8px;
+    border-radius: 0;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slot img {
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+    transition: transform 0.1s steps(2);
+}
+
+.slot:hover {
+    border-color: #ffd166;
+}
+
+.slot:hover img {
+    transform: translateY(-2px);
+}
+
+.slot:hover::after {
+    content: attr(data-nama);
+    position: absolute;
+    bottom: 105%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0d0d10;
+    border: 2px solid #ffd166;
+    color: #e8e0d0;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    white-space: nowrap;
+    padding: 4px 8px;
+    z-index: 10;
+}
+
+.pembatas {
+    width: 100%;
+    height: 32px;
+    background: url("images/pembatas.svg") repeat-x center;
+    background-size: auto 32px;
+    image-rendering: pixelated;
+    margin: 0 auto;
+}
+
+.ke-atas {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ff8c1a;
+    color: #1a1a1f;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    border: 3px solid #0d0d10;
+    box-shadow: 3px 3px 0 #0d0d10;
+    text-decoration: none;
+    z-index: 50;
+    transition: transform 0.1s steps(2), background-color 0.1s steps(2);
+}
+
+.ke-atas:hover {
+    background: #ffd166;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .inventaris {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .slot:hover::after {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 .teks-guild {
     margin-bottom: 16px;
 }
