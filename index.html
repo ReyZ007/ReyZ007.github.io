@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Reyhan Setiawan Lie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,6 +31,16 @@
         <section id="tentang">
             <h2>Tentang Saya</h2>
             <p>Halo, aku Reyhan, mahasiswa Teknik Informatika semester 3 di Universitas Pamulang, lulusan RPL SMK Al Amanah. Aku sedang belajar membangun aplikasi web dengan PHP dan MySQL.</p>
+            <div class="lembar-karakter">
+                <h3>Lembar Karakter</h3>
+                <dl>
+                    <dt>Nama</dt><dd>Reyhan Setiawan Lie</dd>
+                    <dt>Kelas</dt><dd>Web Developer in Training</dd>
+                    <dt>Level</dt><dd>Semester 3</dd>
+                    <dt>Guild</dt><dd>Universitas Pamulang</dd>
+                    <dt>Senjata Utama</dt><dd>PHP dan MySQL</dd>
+                </dl>
+            </div>
         </section>
 
         <section id="proyek">
@@ -35,10 +48,11 @@
             <div class="kartu-proyek">
                 <img src="images/02-dashboard-admin.png" alt="Dashboard Aplikasi Kasir Laundry">
                 <div class="info-proyek">
+                    <p class="status-quest">Quest Selesai</p>
                     <h3>Aplikasi Kasir Laundry</h3>
                     <p>Aplikasi web untuk mengelola transaksi laundry dengan dua level pengguna, admin dan petugas. Ada dashboard pendapatan, laporan keuangan, dan cetak invoice.</p>
-                    <p class="teknologi">PHP, MySQL, Bootstrap, Chart.js</p>
-                    <a href="https://github.com/ReyZ007/aplikasi-kasir-laundry" class="tombol-proyek">Lihat di GitHub</a>
+                    <p class="teknologi"><span class="label-hadiah">Hadiah:</span> PHP, MySQL, Bootstrap, Chart.js</p>
+                    <a href="https://github.com/ReyZ007/aplikasi-kasir-laundry" class="tombol-proyek">Lihat Quest</a>
                 </div>
             </div>
         </section>
@@ -46,36 +60,65 @@
         <section id="skill">
             <h2>Skill</h2>
             <ul class="daftar-skill">
-                <li>PHP</li>
-                <li>MySQL</li>
-                <li>HTML dan CSS</li>
-                <li>JavaScript (dasar)</li>
-                <li>Bootstrap</li>
-                <li>Git dan GitHub</li>
+                <li>
+                    <span class="nama-skill">PHP</span>
+                    <span class="bar"><span class="isi" style="width: 60%"></span></span>
+                </li>
+                <li>
+                    <span class="nama-skill">MySQL</span>
+                    <span class="bar"><span class="isi" style="width: 60%"></span></span>
+                </li>
+                <li>
+                    <span class="nama-skill">HTML dan CSS</span>
+                    <span class="bar"><span class="isi" style="width: 60%"></span></span>
+                </li>
+                <li>
+                    <span class="nama-skill">JavaScript (dasar)</span>
+                    <span class="bar"><span class="isi" style="width: 60%"></span></span>
+                </li>
+                <li>
+                    <span class="nama-skill">Bootstrap</span>
+                    <span class="bar"><span class="isi" style="width: 60%"></span></span>
+                </li>
+                <li>
+                    <span class="nama-skill">Git dan GitHub</span>
+                    <span class="bar"><span class="isi" style="width: 60%"></span></span>
+                </li>
             </ul>
         </section>
 
                 <section id="pengalaman">
             <h2>Pendidikan dan Pengalaman</h2>
             <ul class="garis-waktu">
-                <li><span class="periode">Sekarang</span><strong>S1 Teknik Informatika</strong>, Universitas Pamulang (semester 3)</li>
-                <li><span class="periode">1 Februari - 30 April 2024</span><strong>Praktik Kerja Industri</strong>, Incubesolutions, Mempelajari pembuatan basis data dan SQL serta perancangan aplikasi berbasis web.</li>
-                <li><span class="periode">Lulus 2025</span><strong>SMK Al Amanah Tangerang Selatan</strong>, Rekayasa Perangkat Lunak</li>
+                <li><p class="level">Level 3 <span class="sedang-berjalan">Sedang berjalan</span></p><span class="periode">Sekarang</span><strong>S1 Teknik Informatika</strong>, Universitas Pamulang (semester 3)</li>
+                <li><p class="level">Level 2</p><span class="periode">1 Februari - 30 April 2024</span><strong>Praktik Kerja Industri</strong>, Incubesolutions, Mempelajari pembuatan basis data dan SQL serta perancangan aplikasi berbasis web.</li>
+                <li><p class="level">Level 1</p><span class="periode">Lulus 2025</span><strong>SMK Al Amanah Tangerang Selatan</strong>, Rekayasa Perangkat Lunak</li>
             </ul>
         </section>
 
         <section id="sertifikat">
             <h2>Sertifikat</h2>
-            <ul>
-                <li>Sertifikat Praktik Kerja Industri, Incubesolutions (predikat Kompeten, Desember 2024)</li>
-                <li>Sertifikat Pendidikan Komputer: Microsoft Word, Excel, dan PowerPoint (predikat Sangat Baik, 2025)</li>
-            </ul>
+            <div class="daftar-badge">
+                <div class="badge">
+                    <span class="ikon-badge">★</span>
+                    <p class="nama-badge">Sertifikat Praktik Kerja Industri</p>
+                    <p class="penerbit-badge">Incubesolutions (predikat Kompeten, Desember 2024)</p>
+                </div>
+                <div class="badge">
+                    <span class="ikon-badge">★</span>
+                    <p class="nama-badge">Sertifikat Pendidikan Komputer: Microsoft Word, Excel, dan PowerPoint</p>
+                    <p class="penerbit-badge">(predikat Sangat Baik, 2025)</p>
+                </div>
+            </div>
         </section>
 
         <section id="kontak">
             <h2>Kontak</h2>
-            <p>Email: <a href="mailto:reyhansetiawanlie07@gmail.com">reyhansetiawanlie07@gmail.com</a></p>
-            <p>GitHub: <a href="https://github.com/ReyZ007">github.com/ReyZ007</a></p>
+            <p class="teks-save">Perjalanan belum selesai. Simpan progres dan hubungi aku:</p>
+            <div class="daftar-save">
+                <p>Email: <a class="tombol-save" href="mailto:reyhansetiawanlie07@gmail.com">reyhansetiawanlie07@gmail.com</a></p>
+                <p>GitHub: <a class="tombol-save" href="https://github.com/ReyZ007">github.com/ReyZ007</a></p>
+            </div>
         </section>
     </main>
     <footer>

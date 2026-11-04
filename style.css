@@ -1,25 +1,62 @@
+:root {
+    --latar: #1a1a1f;
+    --panel: #2b2b33;
+    --garis: #0d0d10;
+    --teks: #e8e0d0;
+    --aksen: #ff8c1a;
+    --emas: #ffd166;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border-radius: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    color: #333;
+    font-family: 'VT323', monospace;
+    background-color: var(--latar);
+    color: var(--teks);
     line-height: 1.6;
 }
 
 header {
-    background-color: #2f6fed;
-    color: white;
+    background-color: var(--latar);
+    color: var(--teks);
     text-align: center;
     padding: 60px 20px;
+    border-bottom: 4px solid var(--aksen);
 }
 
 header h1 {
-    font-size: 36px;
+    color: var(--emas);
+    text-shadow: 3px 3px 0 var(--garis);
+    font-size: 24px;
+    line-height: 1.8;
+}
+
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+p,
+li {
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    line-height: 1.4;
 }
 
 main {
@@ -29,15 +66,16 @@ main {
 }
 
 section {
-    background-color: white;
+    background-color: var(--panel);
     padding: 24px;
     margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border: 4px solid var(--garis);
+    box-shadow: 6px 6px 0 var(--garis);
+    scroll-margin-top: 110px;
 }
 
 section h2 {
-    color: #2f6fed;
+    color: var(--aksen);
     margin-bottom: 12px;
 }
 
@@ -45,13 +83,29 @@ ul {
     padding-left: 20px;
 }
 
+.kartu-proyek {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background-color: var(--panel);
+    border: 4px solid var(--garis);
+    border-top: 4px solid var(--aksen);
+    box-shadow: 6px 6px 0 var(--garis);
+    transition: transform 0.15s steps(2);
+}
+
+.kartu-proyek:hover {
+    transform: translate(-2px, -2px);
+}
+
 .kartu-proyek img {
     width: 45%;
-    border-radius: 8px;
+    border: 3px solid var(--garis);
     margin-bottom: 0;
 }
 
 .kartu-proyek h3 {
+    color: var(--emas);
     margin-bottom: 8px;
 }
 
@@ -60,21 +114,17 @@ ul {
 }
 
 a {
-    color: #2f6fed;
-}
-
-html {
-    scroll-behavior: smooth;
+    color: var(--emas);
 }
 
 nav {
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: white;
+    background-color: var(--garis);
     text-align: center;
     padding: 14px 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 0 var(--garis);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -82,34 +132,44 @@ nav {
 }
 
 nav a {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+    line-height: 1.8;
     text-decoration: none;
-    color: #333;
+    color: var(--teks);
     font-weight: bold;
 }
 
 nav a:hover {
-    color: #2f6fed;
-}
-
-section {
-    scroll-margin-top: 70px;
+    color: var(--aksen);
 }
 
 .tombol {
     display: inline-block;
     padding: 10px 22px;
-    background-color: white;
-    color: #2f6fed;
+    background-color: var(--aksen);
+    color: var(--garis);
+    font-family: 'VT323', monospace;
+    font-size: 22px;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 30px;
     margin: 5px;
+    border: 3px solid var(--garis);
+    box-shadow: 4px 4px 0 var(--garis);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.tombol:hover {
+    background-color: var(--emas);
+    color: var(--garis);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--garis);
 }
 
 .tombol-kosong {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
+    background-color: var(--aksen);
+    color: var(--garis);
+    border: 3px solid var(--garis);
 }
 
 .tombol-header {
@@ -118,107 +178,273 @@ section {
 
 .daftar-skill {
     list-style: none;
-    padding-left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    padding: 0;
+    display: block;
 }
 
 .daftar-skill li {
-    background-color: #e8f0fe;
-    color: #2f6fed;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
+    background-color: transparent;
+    border-radius: 0;
+    margin-bottom: 14px;
 }
 
-.daftar-skill li:hover {
-    background-color: #2f6fed;
-    color: white;
+.nama-skill {
+    display: block;
+    color: var(--emas);
+    font-size: 22px;
+    margin-bottom: 4px;
 }
 
-.kartu-proyek {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+.bar {
+    display: block;
+    width: 100%;
+    height: 16px;
+    background-color: var(--garis);
+    border: 3px solid #4a4a55;
+    border-radius: 0;
 }
 
-.kartu-proyek:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.isi {
+    display: block;
+    height: 100%;
+    background: repeating-linear-gradient(90deg, var(--aksen) 0 9px, var(--garis) 9px 10px);
 }
 
 .info-proyek {
     flex: 1;
+    padding: 12px;
 }
 
 .teknologi {
-    color: #666;
-    font-size: 14px;
+    color: var(--emas);
+    font-size: 22px;
+}
+
+.status-quest {
+    display: inline-block;
+    background-color: var(--emas);
+    color: var(--latar);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+}
+
+.label-hadiah {
+    color: var(--emas);
+    margin-right: 8px;
 }
 
 .tombol-proyek {
     display: inline-block;
-    background-color: #2f6fed;
-    color: white;
+    background-color: var(--aksen);
+    color: var(--latar);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
     font-weight: bold;
     text-decoration: none;
     padding: 8px 18px;
-    border-radius: 20px;
+    border: 3px solid var(--garis);
 }
 
 .tombol-proyek:hover {
-    background-color: #1f55c0;
+    background-color: var(--emas);
 }
 
 .garis-waktu {
     list-style: none;
-    padding-left: 20px;
-    border-left: 3px solid #2f6fed;
+    position: relative;
+    padding-left: 40px;
+}
+
+.garis-waktu::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #ff8c1a;
 }
 
 .garis-waktu li {
     position: relative;
-    padding-left: 20px;
-    margin-bottom: 20px;
+    background-color: #2b2b33;
+    border: 3px solid #0d0d10;
+    box-shadow: 4px 4px 0 #0d0d10;
+    padding: 14px;
+    margin-bottom: 18px;
 }
 
 .garis-waktu li::before {
     content: "";
-    width: 12px;
-    height: 12px;
-    background-color: #2f6fed;
-    border-radius: 50%;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+    background-color: #ffd166;
+    border: 3px solid #0d0d10;
+    border-radius: 0;
     position: absolute;
-    left: -29px;
-    top: 6px;
+    left: -30px;
+    top: 14px;
+    transform: translateX(-50%);
+}
+
+.daftar-badge {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.badge {
+    background-color: #2b2b33;
+    border: 3px solid #0d0d10;
+    box-shadow: 4px 4px 0 #0d0d10;
+    padding: 14px;
+    text-align: center;
+    transition: transform 0.15s steps(2);
+}
+
+.badge:hover {
+    transform: translateY(-3px);
+}
+
+.ikon-badge {
+    display: block;
+    font-size: 28px;
+    color: #ffd166;
+    margin-bottom: 8px;
+}
+
+.nama-badge {
+    color: #ffd166;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+
+.penerbit-badge {
+    color: #e8e0d0;
+    font-size: 20px;
+}
+
+.teks-save {
+    color: #e8e0d0;
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+
+.daftar-save {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.tombol-save {
+    display: inline-block;
+    background-color: #ff8c1a;
+    color: #1a1a1f;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    padding: 12px 16px;
+    border: 3px solid #0d0d10;
+    border-radius: 0;
+    box-shadow: 4px 4px 0 #0d0d10;
+    text-decoration: none;
+    transition: transform 0.1s steps(2), background-color 0.1s steps(2);
+}
+
+.tombol-save:hover {
+    background-color: #ffd166;
+    transform: translate(-2px, -2px);
+}
+
+.tombol-save:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.level {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: #ffd166;
+    margin-bottom: 8px;
+}
+
+.sedang-berjalan {
+    display: inline-block;
+    background-color: #ff8c1a;
+    color: #1a1a1f;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 9px;
+    padding: 4px 8px;
+    margin-left: 8px;
 }
 
 .periode {
     display: block;
-    color: #2f6fed;
+    color: #e8e0d0;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 footer {
-    background-color: #2f6fed;
-    color: white;
+    background-color: var(--garis);
+    color: var(--teks);
     text-align: center;
     padding: 20px;
     margin-top: 20px;
+    border-top: 4px solid var(--aksen);
+}
+
+.lembar-karakter {
+    margin-top: 20px;
+    padding: 16px;
+    background-color: var(--latar);
+    border: 4px solid var(--aksen);
+}
+
+.lembar-karakter h3 {
+    color: var(--emas);
+    margin-bottom: 12px;
+}
+
+.lembar-karakter dl {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 8px 16px;
+}
+
+.lembar-karakter dt {
+    color: var(--aksen);
+}
+
+.lembar-karakter dd {
+    margin: 0;
+    color: var(--teks);
 }
 
 @media (max-width: 600px) {
+    header {
+        padding: 40px 16px;
+    }
+
     header h1 {
-        font-size: 28px;
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 13px;
+    }
+
+    h3 {
+        font-size: 11px;
     }
 
     nav a {
-        font-size: 14px;
-        margin: 0 6px;
+        font-size: 9px;
+        margin: 0 4px;
     }
 
     main {
@@ -229,15 +455,19 @@ footer {
         padding: 18px;
     }
 
-    header {
-        padding: 40px 16px;
-    }
-
     .kartu-proyek {
         flex-direction: column;
     }
 
     .kartu-proyek img {
         width: 100%;
+    }
+
+    .lembar-karakter dl {
+        grid-template-columns: 1fr;
+    }
+
+    .daftar-badge {
+        grid-template-columns: 1fr;
     }
 }
