@@ -10,17 +10,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="loading">
+        <p>Memanggil pahlawan...</p>
+        <div class="loading-bar"><div class="loading-isi"></div></div>
+    </div>
+    <span class="bara"></span>
+    <span class="bara"></span>
+    <span class="bara"></span>
+    <span class="bara"></span>
+    <span class="bara"></span>
+    <span class="bara"></span>
+    <span class="bara"></span>
+    <span class="bara"></span>
     <nav>
-        <span class="obor"></span>
+        <span class="obor obor-kiri"></span>
         <a href="#tentang">Tentang</a>
         <a href="#proyek">Proyek</a>
         <a href="#skill">Skill</a>
         <a href="#pengalaman">Pengalaman</a>
         <a href="#sertifikat">Sertifikat</a>
         <a href="#kontak">Kontak</a>
-        <span class="obor"></span>
+        <span class="obor obor-kanan"></span>
+        <div class="xp-bar"><div class="xp-isi" id="xpIsi"></div></div>
     </nav>
     <header>
+        <p class="dialog">Seorang pemanggil memanggil pahlawan baru ke dunia kode...</p>
         <h1>Reyhan Setiawan Lie</h1>
         <p>Mahasiswa Teknik Informatika | Belajar Pengembangan Web</p>
         <div class="tombol-header">
@@ -32,6 +46,10 @@
     <main>
         <section id="tentang">
             <h2>Tentang Saya</h2>
+            <div class="npc">
+                <img src="images/penyihir.svg" class="sprite" alt="Penyihir pixel art">
+                <p class="dialog-npc">Selamat datang, pengelana! Berikut kisah sang pahlawan yang akan kau temui.</p>
+            </div>
             <p>Halo, aku Reyhan, mahasiswa Teknik Informatika semester 3 di Universitas Pamulang, lulusan RPL SMK Al Amanah. Aku sedang belajar membangun aplikasi web dengan PHP dan MySQL.</p>
             <div class="baris-karakter">
                 <img src="images/ksatria.svg" class="sprite sprite-besar" alt="Ksatria pixel art">
@@ -99,7 +117,10 @@
         </section>
 
                 <section id="pengalaman">
-            <h2>Pendidikan dan Pengalaman</h2>
+            <div class="judul-dengan-sprite">
+                <h2>Pendidikan dan Pengalaman</h2>
+                <img src="images/kristal.svg" class="sprite sprite-kecil sprite-kristal" alt="Kristal mana pixel art">
+            </div>
             <ul class="garis-waktu">
                 <li><p class="level">Level 3 <span class="sedang-berjalan">Sedang berjalan</span></p><span class="periode">Sekarang</span><strong>S1 Teknik Informatika</strong>, Universitas Pamulang (semester 3)</li>
                 <li><p class="level">Level 2</p><span class="periode">1 Februari - 30 April 2024</span><strong>Praktik Kerja Industri</strong>, Incubesolutions, Mempelajari pembuatan basis data dan SQL serta perancangan aplikasi berbasis web.</li>
@@ -108,7 +129,10 @@
         </section>
 
         <section id="sertifikat">
-            <h2>Sertifikat</h2>
+            <div class="judul-dengan-sprite">
+                <h2>Sertifikat</h2>
+                <img src="images/peti.svg" class="sprite" alt="Peti harta pixel art">
+            </div>
             <div class="daftar-badge">
                 <div class="badge">
                     <span class="ikon-badge">★</span>
@@ -134,7 +158,20 @@
         </section>
     </main>
     <footer>
+        <img src="images/tengkorak.svg" class="sprite sprite-kecil" alt="Tengkorak pixel art">
         <p>© 2026 Reyhan Setiawan Lie</p>
     </footer>
+    <script>
+        const xpIsi = document.getElementById("xpIsi");
+
+        function perbaruiXP() {
+            const tinggiScroll = document.body.scrollHeight - window.innerHeight;
+            const persen = tinggiScroll > 0 ? window.scrollY / tinggiScroll * 100 : 0;
+            xpIsi.style.width = `${Math.min(100, Math.max(0, persen))}%`;
+        }
+
+        window.addEventListener("scroll", perbaruiXP);
+        perbaruiXP();
+    </script>
 </body>
 </html>
