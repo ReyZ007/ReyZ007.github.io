@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Portofolio Reyhan Setiawan Lie</title>
+    <title>Reyhan Setiawan Lie - Portfolio</title>
+    <link rel="icon" href="images/ksatria.svg" type="image/svg+xml">
+    <meta name="description" content="Portfolio of Reyhan Setiawan Lie, an Informatics student building web apps with PHP and MySQL.">
+    <meta name="theme-color" content="#0d0d10">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Reyhan Setiawan Lie - Portfolio">
+    <meta property="og:description" content="Portfolio of Reyhan Setiawan Lie, an Informatics student building web apps with PHP and MySQL.">
+    <meta property="og:url" content="https://reyz007.github.io/">
+    <meta property="og:image" content="https://reyz007.github.io/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="atas">
+    <a class="lewati" href="#tentang">Skip to content</a>
     <div class="loading">
         <p>Summoning hero...</p>
         <div class="loading-bar"><div class="loading-isi"></div></div>
@@ -55,7 +67,7 @@
     </header>
 
     <main>
-        <section id="tentang">
+        <section id="tentang" class="muncul">
             <h2>Tentang Saya</h2>
             <div class="npc">
                 <img src="images/penyihir.svg" class="sprite" alt="Penyihir pixel art">
@@ -79,7 +91,7 @@
 
         <div class="pembatas"></div>
 
-        <section id="proyek">
+        <section id="proyek" class="muncul">
             <div class="judul-dengan-sprite">
                 <h2>Proyek</h2>
                 <img src="images/slime.svg" class="sprite sprite-kecil" alt="Slime pixel art">
@@ -98,7 +110,7 @@
 
         <div class="pembatas"></div>
 
-        <section id="skill">
+        <section id="skill" class="muncul">
             <div class="judul-dengan-sprite">
                 <h2>Skill</h2>
                 <img src="images/penyihir.svg" class="sprite" alt="Penyihir pixel art">
@@ -160,7 +172,7 @@
 
         <div class="pembatas"></div>
 
-                <section id="pengalaman">
+                <section id="pengalaman" class="muncul">
             <div class="judul-dengan-sprite">
                 <h2>Pendidikan dan Pengalaman</h2>
                 <img src="images/kristal.svg" class="sprite sprite-kecil sprite-kristal" alt="Kristal mana pixel art">
@@ -174,7 +186,7 @@
 
         <div class="pembatas"></div>
 
-        <section id="sertifikat">
+        <section id="sertifikat" class="muncul">
             <div class="judul-dengan-sprite">
                 <h2>Sertifikat</h2>
                 <img src="images/peti.svg" class="sprite" alt="Peti harta pixel art">
@@ -195,7 +207,7 @@
 
         <div class="pembatas"></div>
 
-        <section id="guild">
+        <section id="guild" class="muncul">
             <h2>Guild</h2>
             <p class="teks-guild">Companions on my coding journey. Hover over a character.</p>
             <div class="daftar-guild">
@@ -299,7 +311,7 @@
 
         <div class="pembatas"></div>
 
-        <section id="kontak">
+        <section id="kontak" class="muncul">
             <h2>Kontak</h2>
             <img src="images/naga.svg" class="sprite sprite-besar" alt="Naga pixel art">
             <p class="teks-save">The journey isn't over. Save your progress and contact me:</p>
@@ -326,5 +338,42 @@
         perbaruiXP();
     </script>
     <a href="#atas" class="ke-atas" aria-label="Back to top">▲</a>
+    <div class="toast" id="toast"></div>
+    <script>
+        const toast = document.getElementById("toast");
+        const antrianAchievement = [];
+        let achievementAktif = false;
+
+        function tampilkanAchievement() {
+            if (achievementAktif || antrianAchievement.length === 0) return;
+
+            achievementAktif = true;
+            toast.textContent = antrianAchievement.shift();
+            toast.classList.add("tampil");
+
+            setTimeout(() => {
+                toast.classList.remove("tampil");
+                setTimeout(() => {
+                    achievementAktif = false;
+                    tampilkanAchievement();
+                }, 300);
+            }, 2500);
+        }
+
+        const observerAchievement = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                const judul = entry.target.querySelector("h2");
+                antrianAchievement.push(`Achievement unlocked: Explored ${judul.textContent.trim()}`);
+                observerAchievement.unobserve(entry.target);
+                tampilkanAchievement();
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll("section").forEach((section) => {
+            observerAchievement.observe(section);
+        });
+    </script>
 </body>
 </html>

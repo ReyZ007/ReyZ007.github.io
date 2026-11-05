@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 - Room Not Found</title>
+    <link rel="icon" href="/images/ksatria.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background-color: #1a1a1f;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M0 1h64M0 33h64M1 0v32M33 32v32' stroke='%23131317' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+            font-family: 'VT323', monospace;
+            color: #e8e0d0;
+            text-align: center;
+        }
+        .kotak {
+            max-width: 520px;
+            width: 100%;
+            background: #2b2b33;
+            border: 4px solid #0d0d10;
+            border-top: 4px solid #ff8c1a;
+            box-shadow: 6px 6px 0 #0d0d10;
+            padding: 24px 20px;
+        }
+        h1 {
+            font-family: 'Press Start 2P', monospace;
+            font-size: clamp(28px, 9vw, 48px);
+            color: #ff8c1a;
+            margin: 0 0 12px;
+            text-shadow: 3px 3px 0 #0d0d10;
+        }
+        .hantu {
+            width: 128px;
+            image-rendering: pixelated;
+            animation: melayang 1.4s steps(2) infinite;
+        }
+        .dialog {
+            background: #0d0d10;
+            border: 3px solid #ffd166;
+            padding: 10px 14px;
+            font-size: 22px;
+            margin: 16px 0;
+        }
+        .tombol {
+            display: inline-block;
+            background: #ff8c1a;
+            color: #1a1a1f;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 12px;
+            padding: 12px 16px;
+            border: 3px solid #0d0d10;
+            box-shadow: 4px 4px 0 #0d0d10;
+            text-decoration: none;
+        }
+        .tombol:hover { background: #ffd166; }
+        @keyframes melayang {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-6px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hantu { animation: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="kotak">
+        <h1>404</h1>
+        <img src="/images/ghost.svg" class="hantu" alt="Ghost pixel art">
+        <p class="dialog">You wandered into an unexplored room. Nothing is here but a lost ghost.</p>
+        <a href="/" class="tombol">Return to Town</a>
+    </div>
+</body>
+</html>
