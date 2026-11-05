@@ -325,6 +325,32 @@ nav a:hover {
     margin-top: 20px;
 }
 
+.tombol-cv {
+    display: inline-block;
+    padding: 10px 22px;
+    background-color: #ffd166;
+    color: #1a1a1f;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 5px;
+    border: 3px solid #0d0d10;
+    border-radius: 0;
+    box-shadow: 4px 4px 0 #0d0d10;
+    transition: transform 0.1s steps(2), box-shadow 0.1s steps(2), background-color 0.1s steps(2);
+    min-height: 44px;
+}
+
+.tombol-cv:hover {
+    background-color: #ff8c1a;
+}
+
+.tombol-cv:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
 .daftar-skill {
     list-style: none;
     padding: 0;
@@ -857,11 +883,13 @@ section h2::after {
     transition: transform 0.1s steps(2);
 }
 
-.tombol-header .tombol {
+.tombol-header .tombol,
+.tombol-cv {
     transition: transform 0.1s steps(2), box-shadow 0.1s steps(2);
 }
 
 .tombol-header .tombol:active,
+.tombol-cv:active,
 .tombol-proyek:active {
     transform: translate(2px, 2px);
 }
@@ -1049,11 +1077,13 @@ footer {
     }
 
     .tombol-proyek:hover,
-    .tombol-header .tombol:hover {
+    .tombol-header .tombol:hover,
+    .tombol-cv:hover {
         transform: translate(-2px, -2px);
     }
 
     .tombol-header .tombol:hover::after,
+    .tombol-cv:hover::after,
     .tombol-proyek:hover::after,
     .tombol-save:hover::after {
         animation: kilau 0.4s steps(6);
@@ -1436,6 +1466,7 @@ section:hover {
 }
 
 .tombol-header .tombol,
+.tombol-cv,
 .tombol-proyek,
 .tombol-save {
     position: relative;
@@ -1443,6 +1474,7 @@ section:hover {
 }
 
 .tombol-header .tombol::after,
+.tombol-cv::after,
 .tombol-proyek::after,
 .tombol-save::after {
     content: "";
@@ -1567,6 +1599,18 @@ section:hover {
     .tombol-header,
     .daftar-save {
         gap: 8px;
+    }
+
+    .tombol-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .tombol-header .tombol,
+    .tombol-cv {
+        max-width: 100%;
+        margin: 0;
     }
 
     .tombol-save {
