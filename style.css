@@ -1137,20 +1137,28 @@ button,
     border-color: #ffd166;
 }
 
-.slot:hover::after {
-    content: attr(data-nama);
-    position: absolute;
-    bottom: 105%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #0d0d10;
-    border: 2px solid #ffd166;
-    color: #e8e0d0;
-    font-family: 'VT323', monospace;
-    font-size: 20px;
-    white-space: nowrap;
-    padding: 4px 8px;
-    z-index: 10;
+@media (hover: hover) {
+    .slot:hover::after,
+    .slot:focus::after {
+        content: attr(data-nama);
+        position: absolute;
+        bottom: 105%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #0d0d10;
+        border: 2px solid #ffd166;
+        color: #e8e0d0;
+        font-family: 'VT323', monospace;
+        font-size: 20px;
+        white-space: nowrap;
+        padding: 4px 8px;
+        z-index: 10;
+    }
+}
+
+.slot:focus-visible {
+    outline: 3px solid #ffd166;
+    outline-offset: 2px;
 }
 
 .pembatas {
@@ -1184,16 +1192,6 @@ button,
 
 .ke-atas:hover {
     background: #ffd166;
-}
-
-@media (max-width: 600px) {
-    .inventaris {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .slot:hover::after {
-        display: none;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1627,10 +1625,6 @@ section:hover {
         align-items: stretch;
     }
 
-    .slot:hover::after {
-        display: none;
-    }
-
     .bintang:nth-child(2n) {
         display: none;
     }
@@ -1642,5 +1636,47 @@ section:hover {
     *::after {
         animation: none !important;
         transition: none !important;
+    }
+}
+
+@media (hover: none), (max-width: 600px) {
+    .inventaris {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .slot {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        aspect-ratio: auto;
+        padding: 8px;
+        justify-content: flex-start;
+        min-height: 52px;
+        min-width: 0;
+    }
+
+    .slot img {
+        width: 40px;
+        flex-shrink: 0;
+    }
+
+    .slot::after,
+    .slot:hover::after,
+    .slot:focus::after {
+        content: attr(data-nama);
+        position: static;
+        display: block;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        background: transparent;
+        border: none;
+        padding: 0;
+        white-space: normal;
+        color: #ffd166;
+        font-family: 'VT323', monospace;
+        font-size: 20px;
+        line-height: 1.1;
+        z-index: auto;
     }
 }
