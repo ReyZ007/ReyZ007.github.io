@@ -22,10 +22,13 @@
 </head>
 <body id="atas">
     <a class="lewati" href="#tentang">Skip to content</a>
-    <div class="loading">
-        <p>Summoning hero...</p>
-        <div class="loading-bar"><div class="loading-isi"></div></div>
+    <div class="layar-judul" id="layarJudul">
+        <p class="logo-kecil">A Portfolio Quest</p>
+        <h1 class="logo-judul">REYHAN'S<br>DUNGEON</h1>
+        <button class="tombol-mulai" id="tombolMulai">PRESS START</button>
+        <p class="petunjuk">Click or press Enter</p>
     </div>
+    <noscript><style>.layar-judul{display:none}</style></noscript>
     <span class="bara"></span>
     <span class="bara"></span>
     <span class="bara"></span>
@@ -43,6 +46,13 @@
         <a href="#sertifikat">Sertifikat</a>
         <a href="#guild">Guild</a>
         <a href="#kontak">Kontak</a>
+        <div class="hud">
+            <img src="images/hati.svg" alt="Heart">
+            <img src="images/hati.svg" alt="Heart">
+            <img src="images/hati.svg" alt="Heart">
+            <span class="emas">GOLD <span id="jumlahEmas">0</span></span>
+            <span class="lv">LV 3</span>
+        </div>
         <span class="obor obor-kanan"></span>
         <div class="xp-bar"><div class="xp-isi" id="xpIsi"></div></div>
     </nav>
@@ -57,6 +67,9 @@
         <span class="bintang"></span>
         <span class="bintang"></span>
         <span class="bintang"></span>
+        <img src="images/bat.svg" class="kelelawar" alt="">
+        <img src="images/bat.svg" class="kelelawar" alt="">
+        <img src="images/bat.svg" class="kelelawar" alt="">
         <p class="dialog">A summoner calls a new hero into the world of code...</p>
         <h1>Reyhan Setiawan Lie</h1>
         <p>Mahasiswa Teknik Informatika | Belajar Pengembangan Web</p>
@@ -328,6 +341,37 @@
         <p>© 2026 Reyhan Setiawan Lie</p>
     </footer>
     <script>
+        const layarJudul = document.getElementById("layarJudul");
+        const tombolMulai = document.getElementById("tombolMulai");
+
+        function mulaiPermainan() {
+            layarJudul.classList.add("mulai");
+
+            try {
+                sessionStorage.setItem("portfolioQuestDimulai", "true");
+            } catch (error) {
+                console.warn("Session storage is unavailable.", error);
+            }
+        }
+
+        try {
+            if (sessionStorage.getItem("portfolioQuestDimulai") === "true") {
+                layarJudul.classList.add("mulai");
+            }
+        } catch (error) {
+            console.warn("Session storage is unavailable.", error);
+        }
+
+        tombolMulai.addEventListener("click", mulaiPermainan);
+        document.addEventListener("keydown", (event) => {
+            if (layarJudul.classList.contains("mulai")) return;
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                mulaiPermainan();
+            }
+        });
+    </script>
+    <script>
         const xpIsi = document.getElementById("xpIsi");
 
         function perbaruiXP() {
@@ -343,8 +387,10 @@
     <div class="toast" id="toast"></div>
     <script>
         const toast = document.getElementById("toast");
+        const jumlahEmas = document.getElementById("jumlahEmas");
         const antrianAchievement = [];
         let achievementAktif = false;
+        let emas = 0;
 
         function tampilkanAchievement() {
             if (achievementAktif || antrianAchievement.length === 0) return;
@@ -367,7 +413,9 @@
                 if (!entry.isIntersecting) return;
 
                 const judul = entry.target.querySelector("h2");
-                antrianAchievement.push(`Achievement unlocked: Explored ${judul.textContent.trim()}`);
+                emas += 10;
+                jumlahEmas.textContent = emas;
+                antrianAchievement.push(`Achievement unlocked: Explored ${judul.textContent.trim()} (+10 gold)`);
                 observerAchievement.unobserve(entry.target);
                 tampilkanAchievement();
             });
@@ -377,5 +425,8 @@
             observerAchievement.observe(section);
         });
     </script>
+    <div class="kabut"></div>
+    <span class="obor obor-dinding obor-dinding-kiri"></span>
+    <span class="obor obor-dinding obor-dinding-kanan"></span>
 </body>
 </html>
