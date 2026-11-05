@@ -1867,3 +1867,234 @@ section::after {
         display: none;
     }
 }
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: grid;
+    grid-template-areas: "brand menu hud";
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    justify-content: initial;
+    gap: 0;
+    padding: 10px 72px;
+}
+
+.merek {
+    grid-area: brand;
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffd166;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.merek img {
+    width: 28px;
+    height: 28px;
+    image-rendering: pixelated;
+}
+
+.nav-menu {
+    grid-area: menu;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.nav-menu a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 0 3px;
+    border-bottom: 3px solid transparent;
+    color: #e8e0d0;
+    font-size: 11px;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-menu a::before {
+    content: "";
+}
+
+.nav-menu a:hover {
+    color: #ffd166;
+}
+
+.nav-menu a:hover::before {
+    content: "▶ ";
+}
+
+.nav-menu a.aktif {
+    color: #ff8c1a;
+    border-bottom-color: #ff8c1a;
+}
+
+.hud {
+    grid-area: hud;
+    justify-self: end;
+    margin: 0;
+    white-space: nowrap;
+}
+
+nav .obor {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.xp-bar {
+    bottom: 0;
+}
+
+.kabut {
+    z-index: 0;
+}
+
+.bara {
+    z-index: 1;
+}
+
+body::before,
+body::after {
+    z-index: 0;
+}
+
+nav,
+header,
+main,
+section,
+footer {
+    position: relative;
+    z-index: 2;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+header img.kelelawar {
+    z-index: 1;
+}
+
+header > :not(.bintang):not(.kelelawar) {
+    z-index: 2;
+}
+
+.toast {
+    z-index: 80;
+}
+
+.ke-atas {
+    z-index: 50;
+}
+
+.layar-judul {
+    z-index: 9999;
+}
+
+section h2 {
+    padding-left: 44px;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    border-bottom: 4px dashed #4a4a55;
+}
+
+section::before {
+    width: 36px;
+    height: 36px;
+    background-size: 36px;
+    opacity: 0.35;
+}
+
+section::after {
+    z-index: 0;
+}
+
+.tombol-header,
+.tombol,
+.tombol-header .tombol,
+.tombol-cv {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    line-height: 1.2;
+    box-sizing: border-box;
+}
+
+.tombol-header {
+    flex-wrap: wrap;
+}
+
+footer {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-credit {
+    color: #8a8a96;
+    font-size: 18px;
+}
+
+.obor-dinding {
+    width: 10px;
+    height: 10px;
+    background: #ffd166;
+    transform: rotate(45deg);
+    z-index: 2;
+}
+
+.obor-dinding::before {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    nav {
+        grid-template-areas:
+            "brand hud"
+            "menu menu";
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px 0;
+        padding: 8px 12px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 0 12px;
+    }
+
+    .nav-menu a {
+        font-size: 9px;
+        min-height: 28px;
+    }
+
+    nav .hud {
+        flex-basis: auto;
+        justify-content: flex-end;
+    }
+
+    nav .hud img {
+        width: 16px;
+    }
+
+    nav .obor {
+        display: none;
+    }
+
+    .tombol-header {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

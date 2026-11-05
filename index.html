@@ -39,13 +39,16 @@
     <span class="bara"></span>
     <nav>
         <span class="obor obor-kiri"></span>
-        <a href="#tentang">Tentang</a>
-        <a href="#proyek">Proyek</a>
-        <a href="#skill">Skill</a>
-        <a href="#pengalaman">Pengalaman</a>
-        <a href="#sertifikat">Sertifikat</a>
-        <a href="#guild">Guild</a>
-        <a href="#kontak">Kontak</a>
+        <a href="#atas" class="merek" id="merek" aria-label="Back to top"><img src="images/ksatria.svg" alt=""> Reyhan</a>
+        <div class="nav-menu">
+            <a href="#tentang">Tentang</a>
+            <a href="#proyek">Proyek</a>
+            <a href="#skill">Skill</a>
+            <a href="#pengalaman">Pengalaman</a>
+            <a href="#sertifikat">Sertifikat</a>
+            <a href="#guild">Guild</a>
+            <a href="#kontak">Kontak</a>
+        </div>
         <div class="hud">
             <img src="images/hati.svg" alt="Heart">
             <img src="images/hati.svg" alt="Heart">
@@ -339,10 +342,12 @@
     <footer>
         <img src="images/tengkorak.svg" class="sprite sprite-kecil" alt="Tengkorak pixel art">
         <p>© 2026 Reyhan Setiawan Lie</p>
+        <p class="footer-credit">Made with PHP dreams and pixel dust.</p>
     </footer>
     <script>
         const layarJudul = document.getElementById("layarJudul");
         const tombolMulai = document.getElementById("tombolMulai");
+        const merek = document.getElementById("merek");
 
         function mulaiPermainan() {
             layarJudul.classList.add("mulai");
@@ -363,6 +368,17 @@
         }
 
         tombolMulai.addEventListener("click", mulaiPermainan);
+        merek.addEventListener("click", (event) => {
+            event.preventDefault();
+            layarJudul.classList.remove("mulai");
+
+            try {
+                sessionStorage.removeItem("portfolioQuestDimulai");
+            } catch (error) {
+                console.warn("Session storage is unavailable.", error);
+            }
+        });
+
         document.addEventListener("keydown", (event) => {
             if (layarJudul.classList.contains("mulai")) return;
             if (event.key === "Enter" || event.key === " ") {
@@ -391,6 +407,7 @@
         const antrianAchievement = [];
         let achievementAktif = false;
         let emas = 0;
+        const sectionDikunjungi = new WeakSet();
 
         function tampilkanAchievement() {
             if (achievementAktif || antrianAchievement.length === 0) return;
@@ -412,14 +429,20 @@
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
 
+                document.querySelectorAll(".nav-menu a").forEach((link) => {
+                    link.classList.toggle("aktif", link.getAttribute("href") === `#${entry.target.id}`);
+                });
+
+                if (sectionDikunjungi.has(entry.target)) return;
+                sectionDikunjungi.add(entry.target);
+
                 const judul = entry.target.querySelector("h2");
                 emas += 10;
                 jumlahEmas.textContent = emas;
                 antrianAchievement.push(`Achievement unlocked: Explored ${judul.textContent.trim()} (+10 gold)`);
-                observerAchievement.unobserve(entry.target);
                 tampilkanAchievement();
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.4 });
 
         document.querySelectorAll("section").forEach((section) => {
             observerAchievement.observe(section);
